@@ -1,0 +1,192 @@
+<html>
+    <head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!-- 부트스트랩 -->
+<title>로또 번호 추천 사이트</title>
+</head>
+
+<body>
+    <div class="row" >
+  <div class="col-md-12" align="center"style="background-color:black;" ><h1><span style="color:white;" >Lotto numbers recommended Site</span></h1></div>
+    </div>
+
+   <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id="Home" href="https://lotto-recommend-page-pese2912.c9users.io/#">Home</a>
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="http://nlotto.co.kr/lotto645Confirm.do?method=byWin">This Week 당첨번호 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#" id="RecommendBtn" style ="font-size:20px; color:red"><b>번호 추천!!</b></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">상품별 조회<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li id="DivisionLotto"><a href="#">나눔로또6/45</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://nlotto.co.kr/result.do?method=win520">연금복권520</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://nlotto.co.kr/wininfo.do?method=speettoWin">스피또</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://nlotto.co.kr/win.do?method=winList">인터넷복권</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form id="LottoSearch" class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="numbers" id="LottoSearchNumber" class="form-control" placeholder="회차별 1~695">
+        </div>
+        <input type="button" class="btn btn-default" value="Search" onclick="javascript:onClickSearch();"></input>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button id="LoginBtn" class="btn btn-default" style="margin-top:7px">Login</button></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회원가입 <span class="caret"></span></a>
+
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</nav>
+
+<div align="center"><%= image_tag "로또.jpg"%>
+    <br><br><br><br>
+    <H2 style="font-family:Arial">로또 추천 번호 받고 1등 당첨되세요~!</H2>
+    <br><br>
+</div>
+
+<div id="RecommendNum" align="center">
+        <%= image_tag @LottoLuckyNum[0]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[1]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[2]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[3]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[4]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[5]+".jpg"%>
+    <%= image_tag @LottoLuckyNum[6]+".jpg"%>
+    <br><br>
+  <input type="button" class="btn btn-default" value="지금 구매하러 가기" onclick="javascript:onClickGo();"></input>
+    </div>
+    
+
+<div id="Login" align="center">
+
+<form class="form-inline">
+    <label for="exampleInputEmail1" style="font-size:20px">Email address</label><br>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+  </div><br><br>
+  <label for="exampleInputPassword1" style="font-size:20px">Password</label><br>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword3">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+  </div>
+  <br><br>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+  </div>
+  <br><br>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>   
+</div>
+
+
+<script>
+$( "#Login" ).hide();
+$( "#LottoSearch" ).hide();
+$( "#RecommendNum" ).hide();
+
+$( "#LoginBtn" ).click(function() {
+  $( "#Login" ).fadeIn( "slow", function() {
+    // Animation complete.
+  });
+   $( "#RecommendNum" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+   $( "#LottoSearch" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+  
+});
+
+$( "#DivisionLotto" ).click(function() {
+  $( "#LottoSearch" ).fadeIn( "slow", function() {
+    // Animation complete.
+  });
+   $( "#RecommendNum" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+   $( "#Login" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+});
+
+$( "#Home" ).click(function() {
+  $( "#Login" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+  $( "#LottoSearch" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+   $( "#RecommendNum" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+});
+
+$( "#RecommendBtn" ).click(function() {
+  $( "#Login" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+  $( "#LottoSearch" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+  $( "#RecommendNum" ).fadeIn( "slow", function() {
+    // Animation complete.
+  });
+});
+
+function onClickSearch() {
+    var num = document.getElementById('LottoSearchNumber').value;
+     
+    if(isNaN(num) == true)
+    {
+        alert("입력된 값 : " + num + "은 숫자가 아닙니다.!!");
+    }else
+    {
+        if(num>=1 && num<=695){
+            location.replace("http://nlotto.co.kr/lotto645Confirm.do?method=byWin&drwNo="+num); 
+        
+        }
+        else{
+            alert("입력된 값 : " + num + "회차는 존재하지 않습니다.!!");
+        }
+    }
+}
+function onClickGo()
+{
+    location.replace("http://nlotto.co.kr/game.do?method=buyInfo");
+}
+</script>
+</body>
+<html>
